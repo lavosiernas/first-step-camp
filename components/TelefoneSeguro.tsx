@@ -254,7 +254,7 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
               Enviar
             </button>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{mensagem.length}/150          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{mensagem.length}/150</p>
           </div>
         </div>
       </div>

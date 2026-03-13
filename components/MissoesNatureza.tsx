@@ -131,7 +131,7 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
       </div>
 
       <footer className={`flex-shrink-0 border-t p-4 sm:p-5 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-        <div className="max-w-2xl mx-auto rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}">
+        <div className={`max-w-2xl mx-auto rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}`}>
           <p className="text-xs sm:text-sm"><strong>🌍</strong> Saia e explore o mundo real!</p>
         </div>
       </footer>
