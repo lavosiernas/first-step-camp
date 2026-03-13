@@ -68,14 +68,15 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
   if (etapa === 'historia' && !estaGerando) {
     return (
       <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+        <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
           <button onClick={() => setEtapa('local')} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
-          <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Sua História</h1>
+          <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Sua História</h1>
           <div className="w-6" />
-        </div>
+        </header>
 
-        <div className={`flex-1 overflow-y-auto p-6 flex flex-col space-y-6 ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="flex items-center justify-center gap-4">
+        <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 flex flex-col space-y-6">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             <div className={`bg-gradient-to-br ${personagemAtual?.cor} text-white rounded-2xl p-3 flex items-center justify-center w-16 h-16`}>
               <span className="text-3xl">{personagemAtual?.icone}</span>
             </div>
@@ -89,9 +90,10 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
             <p className="leading-relaxed whitespace-pre-line text-sm">{obterHistoria()}</p>
           </div>
 
-          <div className="space-y-2">
-            <button onClick={() => { setPersonagemSelecionado(null); setLocalSelecionado(null); setEtapa('personagem') }} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition-colors">Criar Nova História</button>
-            <button onClick={aoVoltar} className={`w-full font-semibold py-2 rounded-xl transition-colors ${temaEscuro ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-neutral-900'}`}>Início</button>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <button onClick={() => { setPersonagemSelecionado(null); setLocalSelecionado(null); setEtapa('personagem') }} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2.5 rounded-xl transition-colors">Criar Nova História</button>
+            <button onClick={aoVoltar} className={`w-full font-semibold py-2.5 rounded-xl transition-colors ${temaEscuro ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-neutral-900'}`}>Início</button>
+          </div>
           </div>
         </div>
       </div>
@@ -101,20 +103,21 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
   if (etapa === 'local' || estaGerando) {
     return (
       <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+        <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
           {!estaGerando && <button onClick={() => setEtapa('personagem')} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>}
-          <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{estaGerando ? 'Criando História...' : 'Onde a história acontece?'}</h1>
+          <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{estaGerando ? 'Criando História...' : 'Onde a história acontece?'}</h1>
           <div className="w-6" />
-        </div>
+        </header>
 
-        <div className={`flex-1 overflow-y-auto p-4 flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className={`flex-1 overflow-y-auto flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className="w-full max-w-xl mx-auto p-4 sm:p-6">
           {estaGerando ? (
             <div className="space-y-4 text-center">
               <AvatarIA tamanho="grande" expressao="pensando" animado={true} />
               <p className={`text-sm font-medium ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Criando sua história...</p>
             </div>
           ) : (
-            <div className="w-full max-w-md space-y-3">
+            <div className="space-y-3">
               <div className="text-center mb-4">
                 <p className={`text-sm ${temaEscuro ? 'text-gray-300' : 'text-gray-600'}`}>Seu herói: <span className="font-semibold">{personagemAtual?.label}</span></p>
               </div>
@@ -129,6 +132,7 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
               ))}
             </div>
           )}
+          </div>
         </div>
       </div>
     )
@@ -136,14 +140,15 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
 
   return (
     <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-      <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+      <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
         <button onClick={aoVoltar} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
-        <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Criar uma História</h1>
+        <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Criar uma História</h1>
         <div className="w-6" />
-      </div>
+      </header>
 
-      <div className={`flex-1 overflow-y-auto p-4 flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-md space-y-4">
+      <div className={`flex-1 overflow-y-auto flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className="w-full max-w-xl mx-auto p-4 sm:p-6">
+        <div className="w-full max-w-md mx-auto space-y-4">
           <div className="text-center mb-4">
             <h2 className={`font-semibold ${temaEscuro ? 'text-white' : 'text-neutral-900'} text-sm`}>Escolha seu herói</h2>
           </div>
@@ -156,6 +161,7 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
               </div>
             </button>
           ))}
+        </div>
         </div>
       </div>
     </div>

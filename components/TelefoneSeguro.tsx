@@ -126,8 +126,8 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
   if (modo === 'chamada' && chamadaAtiva && contatoAtual) {
     return (
       <div className="flex flex-col h-full bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
-        {/* Conteúdo da chamada */}
-        <div className="flex-1 flex flex-col items-center justify-center px-6 space-y-6">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6">
+          <div className="w-full max-w-md mx-auto flex flex-col items-center space-y-6">
           {/* Avatar do contato grande */}
           <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-300 to-blue-200 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center text-6xl shadow-lg animate-pulse">
             {contatoAtual.icone}
@@ -168,6 +168,7 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
               ❌
             </button>
           </div>
+          </div>
         </div>
       </div>
     )
@@ -177,8 +178,7 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
   if (modo === 'mensagens' && contatoAtual) {
     return (
       <div className="flex flex-col h-full bg-white dark:bg-gray-800">
-        {/* Cabeçalho */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <header className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
           <button
             onClick={() => {
               setContatoSelecionado(null)
@@ -194,10 +194,11 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
             <p className="text-xs text-gray-500 dark:text-gray-400">Online agora</p>
           </div>
           <span className="text-2xl">{contatoAtual.icone}</span>
-        </div>
+        </header>
 
-        {/* Mensagens */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-800">
+        <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+          <div className="w-full max-w-2xl mx-auto p-4 sm:p-5">
+          <div className="space-y-4">
           {mensagens.length === 0 ? (
             <div className="h-full flex items-center justify-center">
               <div className="text-center">
@@ -229,10 +230,12 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
               <div ref={mensagensEndRef} />
             </>
           )}
+          </div>
+          </div>
         </div>
 
-        {/* Input */}
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4 space-y-2 bg-white dark:bg-gray-800">
+        <div className="flex-shrink-0 border-t border-gray-200 dark:border-gray-700 p-4 sm:p-5 space-y-2 bg-white dark:bg-gray-800">
+          <div className="max-w-2xl mx-auto">
           <div className="flex gap-2">
             <input
               type="text"
@@ -251,7 +254,8 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
               Enviar
             </button>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{mensagem.length}/150</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">{mensagem.length}/150          </p>
+          </div>
         </div>
       </div>
     )
@@ -260,20 +264,19 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
   // MODO: LISTA DE CONTATOS
   return (
     <div className="flex flex-col h-full bg-white dark:bg-gray-800">
-      {/* Cabeçalho */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+      <header className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
         <button
           onClick={aoVoltar}
           className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-xl"
         >
           ←
         </button>
-        <h1 className="font-semibold text-sm text-gray-900 dark:text-white">Telefonar 📞</h1>
+        <h1 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">Telefonar 📞</h1>
         <div className="w-6" />
-      </div>
+      </header>
 
-      {/* Contatos */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-2">
+      <div className="flex-1 overflow-y-auto p-4 sm:p-5">
+        <div className="w-full max-w-xl mx-auto space-y-2">
         {contatos.map((contato) => (
           <div
             key={contato.id}
@@ -301,16 +304,16 @@ export default function TelefoneSeguro({ aoVoltar }: TelefoneSeguroProps) {
             </button>
           </div>
         ))}
+        </div>
       </div>
 
-      {/* Rodapé */}
-      <div className="border-t border-gray-200 dark:border-gray-700 p-4 text-center bg-gray-50 dark:bg-gray-900">
-        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-3 border-l-4 border-blue-500">
-          <p className="text-xs text-blue-900 dark:text-blue-200">
+      <footer className="flex-shrink-0 border-t border-gray-200 dark:border-gray-700 p-4 text-center bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-xl mx-auto bg-blue-50 dark:bg-blue-900/30 rounded-lg p-3 border-l-4 border-blue-500">
+          <p className="text-xs sm:text-sm text-blue-900 dark:text-blue-200">
             <strong>👨‍👩‍👧:</strong> Todos os contatos são gerenciados pelos pais
           </p>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }

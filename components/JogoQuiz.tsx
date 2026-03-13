@@ -72,31 +72,30 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
   if (concluido) {
     return (
       <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+        <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
           <button onClick={aoVoltar} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
-          <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Quiz Completo!</h1>
+          <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Quiz Completo!</h1>
           <div className="w-6" />
-        </div>
+        </header>
 
-        <div className={`flex-1 overflow-y-auto p-6 flex flex-col items-center justify-center space-y-6 ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <AvatarIA tamanho="grande" expressao="animado" animado={true} />
-          <div className="text-center space-y-3">
-            <h2 className={`text-2xl font-bold ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Parabéns!</h2>
-            <p className={`text-sm ${temaEscuro ? 'text-gray-300' : 'text-gray-600'}`}>Você aprendeu muito hoje</p>
-          </div>
-
-          <div className={`w-full max-w-xs rounded-2xl p-6 text-center border-2 ${temaEscuro ? 'bg-gray-700 border-blue-600' : 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-500'}`}>
-            <p className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">{pontos}/5</p>
-            <p className={`text-sm ${temaEscuro ? 'text-gray-300' : 'text-neutral-900'}`}>Respostas Corretas</p>
-          </div>
-
-          <div className={`rounded-xl p-4 border-l-4 text-center ${temaEscuro ? 'bg-green-900/30 border-green-700 text-green-200' : 'bg-green-50 border-green-400 text-green-900'}`}>
-            <p className="text-xs"><strong>🎉 Incrível!</strong> Continue explorando e aprendendo mais tópicos!</p>
-          </div>
-
-          <div className="flex gap-2 w-full max-w-xs">
-            <button onClick={aoReiniciar} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition-colors">Tentar Novamente</button>
-            <button onClick={aoVoltar} className={`flex-1 font-semibold py-2 rounded-xl transition-colors ${temaEscuro ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-neutral-900'}`}>Início</button>
+        <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className="w-full max-w-xl mx-auto p-6 flex flex-col items-center justify-center space-y-6">
+            <AvatarIA tamanho="grande" expressao="animado" animado={true} />
+            <div className="text-center space-y-3">
+              <h2 className={`text-xl sm:text-2xl font-bold ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Parabéns!</h2>
+              <p className={`text-sm ${temaEscuro ? 'text-gray-300' : 'text-gray-600'}`}>Você aprendeu muito hoje</p>
+            </div>
+            <div className={`w-full max-w-xs rounded-2xl p-6 text-center border-2 ${temaEscuro ? 'bg-gray-700 border-blue-600' : 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-500'}`}>
+              <p className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">{pontos}/5</p>
+              <p className={`text-sm ${temaEscuro ? 'text-gray-300' : 'text-neutral-900'}`}>Respostas Corretas</p>
+            </div>
+            <div className={`rounded-xl p-4 border-l-4 text-center w-full max-w-md ${temaEscuro ? 'bg-green-900/30 border-green-700 text-green-200' : 'bg-green-50 border-green-400 text-green-900'}`}>
+              <p className="text-xs sm:text-sm"><strong>🎉 Incrível!</strong> Continue explorando e aprendendo mais tópicos!</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2 w-full max-w-xs">
+              <button onClick={aoReiniciar} className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2.5 rounded-xl transition-colors">Tentar Novamente</button>
+              <button onClick={aoVoltar} className={`flex-1 font-semibold py-2.5 rounded-xl transition-colors ${temaEscuro ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-neutral-900'}`}>Início</button>
+            </div>
           </div>
         </div>
       </div>
@@ -105,22 +104,23 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
 
   return (
     <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-      <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+      <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
         <button onClick={aoVoltar} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
         <div className="text-center">
-          <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Hora do Quiz!</h1>
+          <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Hora do Quiz!</h1>
           <p className={`text-xs ${temaEscuro ? 'text-gray-400' : 'text-gray-500'}`}>Pergunta {indiceQuizAtual + 1} de {QUIZZES.length}</p>
         </div>
         <div className="w-6" />
-      </div>
+      </header>
 
-      <div className={`bg-gray-200 dark:bg-gray-700 h-1 ${temaEscuro ? '' : ''}`}>
+      <div className="bg-gray-200 dark:bg-gray-700 h-1">
         <div className="bg-blue-500 h-full transition-all duration-300" style={{ width: `${((indiceQuizAtual + 1) / QUIZZES.length) * 100}%` }} />
       </div>
 
-      <div className={`flex-1 overflow-y-auto p-6 flex flex-col justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="mb-8">
-          <h2 className={`text-lg font-semibold mb-6 ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{quizAtual.pergunta}</h2>
+      <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className="w-full max-w-xl mx-auto p-4 sm:p-6 flex flex-col justify-center">
+        <div className="mb-6 sm:mb-8">
+          <h2 className={`text-base sm:text-lg font-semibold mb-4 sm:mb-6 ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{quizAtual.pergunta}</h2>
 
           <div className="space-y-3">
             {quizAtual.opcoes.map((opcao, idx) => {
@@ -148,13 +148,16 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
             <p className="text-sm leading-relaxed">{estaCorreto ? '✅ Correto! ' : '💡 Por quê: '} {quizAtual.explicacao}</p>
           </div>
         )}
+        </div>
       </div>
 
       {respondido && (
-        <div className={`border-t p-4 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-          <button onClick={aoClicarProximo} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition-colors">
-            {indiceQuizAtual < QUIZZES.length - 1 ? 'Próxima Pergunta' : 'Ver Resultados'}
-          </button>
+        <div className={`flex-shrink-0 border-t p-4 sm:p-5 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
+          <div className="max-w-xl mx-auto">
+            <button onClick={aoClicarProximo} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition-colors">
+              {indiceQuizAtual < QUIZZES.length - 1 ? 'Próxima Pergunta' : 'Ver Resultados'}
+            </button>
+          </div>
         </div>
       )}
     </div>
