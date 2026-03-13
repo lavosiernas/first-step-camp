@@ -49,7 +49,7 @@ interface Mensagem {
   sugestao?: string
 }
 
-export default function InterfaceChat({ aoExplorar }: InterfaceChatProps) {
+export default function InterfaceChat({ aoExplorar: _aoExplorar }: InterfaceChatProps) {
   const { historico, adicionarMensagem } = useHistoricoChat()
   const { temaEscuro } = useTema()
   const [mensagens, setMensagens] = useState<Mensagem[]>(
