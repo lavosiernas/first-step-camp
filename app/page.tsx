@@ -63,7 +63,7 @@ export default function Inicio() {
     <FrameDispositivo aoApertarBotao={aoApertarBotaoDispositivo}>
       {/* Tela de inicialização */}
       {tela === 'boot' && (
-        <div className="flex flex-col items-center justify-center h-full bg-black dark:bg-black">
+        <div className="flex-1 flex flex-col items-center justify-center min-h-0 bg-black dark:bg-black">
           <div className="space-y-4 text-center animate-fade-in">
             <div className="text-5xl">🎓</div>
             <div>
@@ -76,7 +76,7 @@ export default function Inicio() {
 
       {/* Tela inicial - Lançador de apps */}
       {tela === 'inicio' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <LancadorApps
             aoSelecionarApp={(app) => mudarTela(app as Tela)}
             curiosidadeDiaria={curiosidadeDiaria}
@@ -86,14 +86,14 @@ export default function Inicio() {
 
       {/* Tela de Pergunte (Chat) */}
       {tela === 'pergunte' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <InterfaceChat aoExplorar={() => mudarTela('explore')} />
         </div>
       )}
 
       {/* Tela de Explore */}
       {tela === 'explore' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <ExplorarTopicos
             aoSelecionarPergunta={(pergunta) => mudarTela('pergunte')}
             aoVoltar={() => mudarTela('inicio')}
@@ -103,35 +103,35 @@ export default function Inicio() {
 
       {/* Tela de Quiz */}
       {tela === 'quiz' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <JogoQuiz aoVoltar={() => mudarTela('inicio')} />
         </div>
       )}
 
       {/* Tela de Histórias */}
       {tela === 'historias' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <ConstrutorHistorias aoVoltar={() => mudarTela('inicio')} />
         </div>
       )}
 
       {/* Tela de Telefone */}
       {tela === 'telefone' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <TelefoneSeguro aoVoltar={() => mudarTela('inicio')} />
         </div>
       )}
 
       {/* Tela de Missões */}
       {tela === 'missoes' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <MissoesNatureza aoVoltar={() => mudarTela('inicio')} />
         </div>
       )}
 
       {/* Painel dos Pais (Easter egg) */}
       {tela === 'pais' && (
-        <div className={`h-full ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
+        <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <PainelPais aoVoltar={() => mudarTela('inicio')} />
         </div>
       )}

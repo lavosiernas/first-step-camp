@@ -110,7 +110,7 @@ export default function InterfaceChat({ aoExplorar }: InterfaceChatProps) {
   }
 
   return (
-    <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+    <div className={`flex flex-1 flex-col min-h-0 ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
       {/* Cabeçalho compacto */}
       <header className={`flex-shrink-0 flex items-center gap-2 p-3 sm:p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
         <AvatarIA tamanho="pequeno" expressao="feliz" />
@@ -170,19 +170,19 @@ export default function InterfaceChat({ aoExplorar }: InterfaceChatProps) {
         </div>
       </div>
 
-      {/* Área de input — compacta, sem desperdício de espaço */}
-      <div className={`flex-shrink-0 border-t p-3 sm:p-4 space-y-2 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
+      {/* Área de input — layout de chat: sugestões pra baixo, pouco espaço embaixo */}
+      <div className={`flex-shrink-0 border-t p-3 space-y-2 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
         {mensagens.length <= 1 && (
-          <div className="space-y-1.5">
-            <p className={`text-xs font-medium ${temaEscuro ? 'text-gray-400' : 'text-gray-500'}`}>Tente perguntar:</p>
-            <div className="flex gap-2 overflow-x-auto pb-0.5 -mx-0.5 scrollbar-none">
+          <div className="space-y-1">
+            <p className={`text-xs ${temaEscuro ? 'text-gray-400' : 'text-gray-500'}`}>Tente perguntar:</p>
+            <div className="space-y-1">
               {['Por que o céu é azul?', 'Por que vulcões entram em erupção?', 'Por que as baleias cantam?'].map((p) => (
                 <button
                   key={p}
                   onClick={() => aoEnviarMensagem(p)}
-                  className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${temaEscuro ? 'text-blue-300 hover:text-blue-200 bg-gray-700/60' : 'text-blue-600 hover:text-blue-700 bg-blue-50'}`}
+                  className={`w-full text-left text-xs px-3 py-2 rounded-xl transition-colors ${temaEscuro ? 'text-blue-300 hover:bg-gray-700' : 'text-blue-600 hover:bg-gray-100'}`}
                 >
-                  {p}
+                  • {p}
                 </button>
               ))}
             </div>
@@ -195,12 +195,12 @@ export default function InterfaceChat({ aoExplorar }: InterfaceChatProps) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && aoEnviarMensagem(inputValue)}
             placeholder="Faça uma pergunta..."
-            className={`flex-1 min-w-0 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${temaEscuro ? 'bg-gray-700 text-white placeholder-gray-500' : 'bg-gray-100 text-neutral-900 placeholder-gray-500'}`}
+            className={`flex-1 min-w-0 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${temaEscuro ? 'bg-gray-700 text-white placeholder-gray-500' : 'bg-gray-100 text-neutral-900 placeholder-gray-500'}`}
           />
           <button
             onClick={() => aoEnviarMensagem(inputValue)}
             disabled={!inputValue.trim() || estáCarregando}
-            className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white rounded-xl px-3 py-2.5 transition-colors duration-200 font-medium text-sm"
+            className="flex-shrink-0 bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white rounded-xl px-3 py-2 font-medium text-sm"
           >
             Enviar
           </button>
