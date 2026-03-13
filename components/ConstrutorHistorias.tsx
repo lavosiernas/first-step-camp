@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { useTema } from '@/contexts/ThemeContext'
 import AvatarIA from './AvatarIA'
 
@@ -40,7 +39,6 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
   const [personagemSelecionado, setPersonagemSelecionado] = useState<string | null>(null)
   const [localSelecionado, setLocalSelecionado] = useState<string | null>(null)
   const [estaGerando, setEstaGerando] = useState(false)
-  const [historiasArmazenadas, setHistoriasArmazenadas] = useLocalStorage<any[]>('primeiro-passo-historias', [])
 
   const aoSelecionarPersonagem = (id: string) => {
     setPersonagemSelecionado(id)

@@ -95,7 +95,7 @@ export default function Inicio() {
       {tela === 'explore' && (
         <div className={`flex-1 flex flex-col min-h-0 ${emTransicao ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}>
           <ExplorarTopicos
-            aoSelecionarPergunta={(pergunta) => mudarTela('pergunte')}
+            aoSelecionarPergunta={() => mudarTela('pergunte')}
             aoVoltar={() => mudarTela('inicio')}
           />
         </div>
