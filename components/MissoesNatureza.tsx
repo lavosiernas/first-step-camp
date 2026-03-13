@@ -56,13 +56,14 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
   if (missaoSelecionadaId && missaoAtual) {
     return (
       <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+        <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
           <button onClick={() => setMissaoSelecionadaId(null)} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
-          <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Completar Missão</h1>
+          <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Completar Missão</h1>
           <div className="w-6" />
-        </div>
+        </header>
 
-        <div className={`flex-1 overflow-y-auto p-6 flex flex-col space-y-6 ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className="w-full max-w-xl mx-auto p-4 sm:p-6 flex flex-col space-y-6">
           <div className="text-center">
             <span className="text-5xl block mb-3">{missaoAtual.icone}</span>
             <h2 className={`text-lg font-semibold mb-2 ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{missaoAtual.titulo}</h2>
@@ -78,17 +79,20 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
             ))}
           </div>
 
-          <div className={`rounded-xl p-3 border-l-4 ${temaEscuro ? 'bg-blue-900/30 border-blue-700 text-blue-200' : 'bg-blue-50 border-blue-400 text-blue-900'}`}>
-            <p className="text-xs"><strong>💡 Dica:</strong> Saia, complete a missão, e depois conte-nos o que encontrou!</p>
+          <div className={`rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-blue-900/30 border-blue-700 text-blue-200' : 'bg-blue-50 border-blue-400 text-blue-900'}`}>
+            <p className="text-xs sm:text-sm"><strong>💡 Dica:</strong> Saia, complete a missão, e depois conte-nos o que encontrou!</p>
+          </div>
           </div>
         </div>
 
-        <div className={`border-t p-4 space-y-2 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
+        <div className={`flex-shrink-0 border-t p-4 sm:p-5 space-y-2 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
+          <div className="max-w-xl mx-auto">
           <label className={`text-xs font-semibold ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>O que você encontrou?</label>
           <textarea value={resposta} onChange={(e) => setResposta(e.target.value)} placeholder="Conte-nos sobre sua descoberta..." maxLength={200} rows={4} className={`w-full rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${temaEscuro ? 'bg-gray-700 text-white placeholder-gray-500' : 'bg-gray-100 text-neutral-900 placeholder-gray-500'}`} />
           <div className="flex items-center justify-between">
             <p className={`text-xs ${temaEscuro ? 'text-gray-400' : 'text-gray-500'}`}>{resposta.length}/200</p>
             <button onClick={aoEnviar} disabled={!resposta.trim()} className="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white rounded-xl px-4 py-2 transition-colors font-medium text-sm">Enviar</button>
+          </div>
           </div>
         </div>
       </div>
@@ -97,17 +101,20 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
 
   return (
     <div className={`flex flex-col h-full ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-      <div className={`flex items-center justify-between p-4 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
+      <header className={`flex items-center justify-between p-4 sm:p-5 border-b ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-gray-50'}`}>
         <button onClick={aoVoltar} className={`transition-colors ${temaEscuro ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-neutral-900'}`}>←</button>
-        <h1 className={`font-semibold text-sm ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Missões da Natureza</h1>
+        <h1 className={`font-semibold text-sm sm:text-base ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Missões da Natureza</h1>
         <div className="w-6" />
-      </div>
+      </header>
 
       <div className={`bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 px-4 py-3 border-b ${temaEscuro ? 'border-gray-700' : 'border-emerald-200'}`}>
-        <p className={`text-xs ${temaEscuro ? 'text-emerald-200' : 'text-emerald-900'}`}><strong>Completadas:</strong> {missoes.filter(m => m.concluida).length}/{missoes.length}</p>
+        <div className="max-w-2xl mx-auto">
+          <p className={`text-xs sm:text-sm ${temaEscuro ? 'text-emerald-200' : 'text-emerald-900'}`}><strong>Completadas:</strong> {missoes.filter(m => m.concluida).length}/{missoes.length}</p>
+        </div>
       </div>
 
-      <div className={`flex-1 overflow-y-auto p-4 space-y-3 ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+      <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-3">
         {missoes.map((missao) => (
           <button key={missao.id} onClick={() => setMissaoSelecionadaId(missao.id)} disabled={missao.concluida} className={`w-full text-left rounded-2xl p-4 transition-all ${missao.concluida ? (temaEscuro ? 'bg-green-900/30 border-2 border-green-700' : 'bg-green-50 border-2 border-green-300 opacity-75') : (temaEscuro ? 'bg-gray-700 hover:bg-gray-600 border-2 border-gray-600 active:scale-95' : 'bg-gradient-to-br from-emerald-100 to-teal-100 hover:shadow-lg active:scale-95 border-2 border-emerald-300')}`}>
             <div className="flex items-start gap-3">
@@ -120,13 +127,14 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
             </div>
           </button>
         ))}
-      </div>
-
-      <div className={`border-t p-4 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-        <div className={`rounded-xl p-3 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}`}>
-          <p className="text-xs"><strong>🌍:</strong> Saia e explore o mundo real!</p>
         </div>
       </div>
+
+      <footer className={`flex-shrink-0 border-t p-4 sm:p-5 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
+        <div className="max-w-2xl mx-auto rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}">
+          <p className="text-xs sm:text-sm"><strong>🌍</strong> Saia e explore o mundo real!</p>
+        </div>
+      </footer>
     </div>
   )
 }
