@@ -79,7 +79,7 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
         </header>
 
         <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="w-full max-w-xl mx-auto p-6 flex flex-col items-center justify-center space-y-6">
+          <div className="w-full p-6 flex flex-col items-center justify-center space-y-6">
             <AvatarIA tamanho="grande" expressao="animado" animado={true} />
             <div className="text-center space-y-3">
               <h2 className={`text-xl sm:text-2xl font-bold ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>Parabéns!</h2>
@@ -118,7 +118,7 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
       </div>
 
       <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-xl mx-auto p-4 sm:p-6 flex flex-col justify-center">
+        <div className="w-full p-4 sm:p-6 flex flex-col justify-center">
         <div className="mb-6 sm:mb-8">
           <h2 className={`text-base sm:text-lg font-semibold mb-4 sm:mb-6 ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{quizAtual.pergunta}</h2>
 
@@ -153,7 +153,7 @@ export default function JogoQuiz({ aoVoltar }: JogoQuizProps) {
 
       {respondido && (
         <div className={`flex-shrink-0 border-t p-4 sm:p-5 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-          <div className="max-w-xl mx-auto">
+          <div className="w-full">
             <button onClick={aoClicarProximo} className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition-colors">
               {indiceQuizAtual < QUIZZES.length - 1 ? 'Próxima Pergunta' : 'Ver Resultados'}
             </button>

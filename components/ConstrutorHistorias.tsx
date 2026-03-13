@@ -75,7 +75,7 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
         </header>
 
         <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 flex flex-col space-y-6">
+          <div className="w-full p-4 sm:p-6 flex flex-col space-y-6">
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <div className={`bg-gradient-to-br ${personagemAtual?.cor} text-white rounded-2xl p-3 flex items-center justify-center w-16 h-16`}>
               <span className="text-3xl">{personagemAtual?.icone}</span>
@@ -110,7 +110,7 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
         </header>
 
         <div className={`flex-1 overflow-y-auto flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="w-full max-w-xl mx-auto p-4 sm:p-6">
+          <div className="w-full p-4 sm:p-6">
           {estaGerando ? (
             <div className="space-y-4 text-center">
               <AvatarIA tamanho="grande" expressao="pensando" animado={true} />
@@ -147,8 +147,8 @@ export default function ConstrutorHistorias({ aoVoltar }: ConstrutorHistoriasPro
       </header>
 
       <div className={`flex-1 overflow-y-auto flex flex-col items-center justify-center ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-xl mx-auto p-4 sm:p-6">
-        <div className="w-full max-w-md mx-auto space-y-4">
+        <div className="w-full p-4 sm:p-6">
+        <div className="w-full max-w-md space-y-4">
           <div className="text-center mb-4">
             <h2 className={`font-semibold ${temaEscuro ? 'text-white' : 'text-neutral-900'} text-sm`}>Escolha seu herói</h2>
           </div>

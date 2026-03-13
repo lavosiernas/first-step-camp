@@ -74,7 +74,7 @@ export default function ExplorarTopicos({ aoSelecionarPergunta, aoVoltar }: Expl
         </header>
 
         <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-5">
+          <div className="w-full p-4 sm:p-6 space-y-5">
             <div className={`bg-gradient-to-br ${topicoAtual.cor} rounded-2xl p-4 sm:p-5 text-white`}>
               <p className="text-sm sm:text-base font-medium">{topicoAtual.descricao}</p>
             </div>
@@ -106,7 +106,7 @@ export default function ExplorarTopicos({ aoSelecionarPergunta, aoVoltar }: Expl
       </header>
 
       <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
+        <div className="w-full p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {TOPICOS.map((topico) => (
               <button key={topico.id} onClick={() => setTopicoSelecionado(topico.id)} className={`w-full text-left bg-gradient-to-br ${topico.cor} hover:shadow-lg rounded-2xl p-4 transition-all active:scale-[0.98]`}>
@@ -125,7 +125,7 @@ export default function ExplorarTopicos({ aoSelecionarPergunta, aoVoltar }: Expl
       </div>
 
       <footer className={`flex-shrink-0 border-t p-3 sm:p-4 text-center text-xs sm:text-sm ${temaEscuro ? 'border-gray-700 text-gray-400' : 'border-gray-100 text-gray-500'}`}>
-        <p className="max-w-xl mx-auto">Clique em qualquer tópico para ver perguntas</p>
+        <p>Clique em qualquer tópico para ver perguntas</p>
       </footer>
     </div>
   )

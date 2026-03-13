@@ -26,7 +26,7 @@ export default function PainelPais({ aoVoltar }: PainelPaisProps) {
       </header>
 
       <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8">
+        <div className="w-full p-4 sm:p-6 space-y-6 sm:space-y-8">
           {/* Boas-vindas */}
           <section className={`rounded-2xl p-5 sm:p-6 ${temaEscuro ? 'bg-gray-700' : 'bg-gradient-to-br from-blue-50 to-blue-100'}`}>
             <h2 className={`text-base sm:text-lg font-bold mb-2 ${temaEscuro ? 'text-white' : 'text-blue-900'}`}>Bem-vindo ao painel de monitoramento!</h2>
@@ -69,7 +69,7 @@ export default function PainelPais({ aoVoltar }: PainelPaisProps) {
       </div>
 
       <footer className={`flex-shrink-0 border-t p-4 text-center text-xs sm:text-sm ${temaEscuro ? 'border-gray-700 text-gray-400' : 'border-gray-100 text-gray-500'}`}>
-        <p className="max-w-xl mx-auto">Primeiro Passo é projetado para inspirar curiosidade e aprendizado</p>
+        <p>Primeiro Passo é projetado para inspirar curiosidade e aprendizado</p>
       </footer>
     </div>
   )

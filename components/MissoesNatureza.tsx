@@ -63,7 +63,7 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
         </header>
 
         <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="w-full max-w-xl mx-auto p-4 sm:p-6 flex flex-col space-y-6">
+          <div className="w-full p-4 sm:p-6 flex flex-col space-y-6">
           <div className="text-center">
             <span className="text-5xl block mb-3">{missaoAtual.icone}</span>
             <h2 className={`text-lg font-semibold mb-2 ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>{missaoAtual.titulo}</h2>
@@ -86,7 +86,7 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
         </div>
 
         <div className={`flex-shrink-0 border-t p-4 sm:p-5 space-y-2 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-          <div className="max-w-xl mx-auto">
+          <div className="w-full">
           <label className={`text-xs font-semibold ${temaEscuro ? 'text-white' : 'text-neutral-900'}`}>O que você encontrou?</label>
           <textarea value={resposta} onChange={(e) => setResposta(e.target.value)} placeholder="Conte-nos sobre sua descoberta..." maxLength={200} rows={4} className={`w-full rounded-2xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${temaEscuro ? 'bg-gray-700 text-white placeholder-gray-500' : 'bg-gray-100 text-neutral-900 placeholder-gray-500'}`} />
           <div className="flex items-center justify-between">
@@ -108,13 +108,13 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
       </header>
 
       <div className={`bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 px-4 py-3 border-b ${temaEscuro ? 'border-gray-700' : 'border-emerald-200'}`}>
-        <div className="max-w-2xl mx-auto">
+        <div className="w-full">
           <p className={`text-xs sm:text-sm ${temaEscuro ? 'text-emerald-200' : 'text-emerald-900'}`}><strong>Completadas:</strong> {missoes.filter(m => m.concluida).length}/{missoes.length}</p>
         </div>
       </div>
 
       <div className={`flex-1 overflow-y-auto ${temaEscuro ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-3">
+        <div className="w-full p-4 sm:p-6 space-y-3">
         {missoes.map((missao) => (
           <button key={missao.id} onClick={() => setMissaoSelecionadaId(missao.id)} disabled={missao.concluida} className={`w-full text-left rounded-2xl p-4 transition-all ${missao.concluida ? (temaEscuro ? 'bg-green-900/30 border-2 border-green-700' : 'bg-green-50 border-2 border-green-300 opacity-75') : (temaEscuro ? 'bg-gray-700 hover:bg-gray-600 border-2 border-gray-600 active:scale-95' : 'bg-gradient-to-br from-emerald-100 to-teal-100 hover:shadow-lg active:scale-95 border-2 border-emerald-300')}`}>
             <div className="flex items-start gap-3">
@@ -131,7 +131,7 @@ export default function MissoesNatureza({ aoVoltar }: MissoesNaturezaProps) {
       </div>
 
       <footer className={`flex-shrink-0 border-t p-4 sm:p-5 ${temaEscuro ? 'border-gray-700 bg-gray-900' : 'border-gray-100 bg-white'}`}>
-        <div className={`max-w-2xl mx-auto rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}`}>
+        <div className={`w-full rounded-xl p-3 sm:p-4 border-l-4 ${temaEscuro ? 'bg-emerald-900/30 border-emerald-700 text-emerald-200' : 'bg-emerald-50 border-emerald-400 text-emerald-900'}`}>
           <p className="text-xs sm:text-sm"><strong>🌍</strong> Saia e explore o mundo real!</p>
         </div>
       </footer>
